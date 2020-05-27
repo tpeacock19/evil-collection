@@ -119,7 +119,7 @@
      "cc" mu4e-compose-new
      "x" mu4e-kill-update-mail
      "A" mu4e-about
-     "f" smtpmail-send-queued-mail
+     ;;"f" smtpmail-send-queued-mail
      "m" mu4e~main-toggle-mail-sending-mode
      "s" mu4e-headers-search
      "q" mu4e-quit)
