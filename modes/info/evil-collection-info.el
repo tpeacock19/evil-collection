@@ -50,7 +50,7 @@
 
     ;; From evil-integration.el.
     "0" 'evil-digit-argument-or-evil-beginning-of-line
-    (kbd "M-h") 'Info-help              ; "h"
+    ;; (kbd "M-h") 'Info-help              ; "h"
     (kbd "C-t") 'Info-history-back      ; "l"
     (kbd "C-o") 'Info-history-back
     " " 'Info-scroll-up
