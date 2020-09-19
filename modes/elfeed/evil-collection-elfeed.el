@@ -54,8 +54,8 @@
     (kbd "S-SPC") 'scroll-down-command
 
     ;; filter
-    "s" 'elfeed-search-live-filter
-    "S" 'elfeed-search-set-filter
+    "f" 'elfeed-search-live-filter
+    "F" 'elfeed-search-set-filter
     "c" 'elfeed-search-clear-filter
 
     ;; refresh
@@ -84,7 +84,7 @@
     (kbd "<tab>") 'elfeed-show-next-link
 
     ;; filter
-    "s" 'elfeed-show-new-live-search
+    "f" 'elfeed-show-new-live-search
 
     "+" 'elfeed-show-tag
     "-" 'elfeed-show-untag
