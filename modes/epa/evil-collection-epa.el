@@ -53,7 +53,7 @@
 
     ;; Unchanged keybindings.
     "s" 'epa-sign-file
-    "e" 'epa-encrypt-file
+    "x" 'epa-encrypt-file
     "i" 'epa-import-keys
     "o" 'epa-export-keys)
 

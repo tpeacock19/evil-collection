@@ -89,7 +89,12 @@
 
 ;;; `eshell-mode-map' is reset when Eshell is initialized in `eshell-mode'. We
 ;;; need to add bindings to `eshell-first-time-mode-hook'.
-(defun evil-collection-eshell-setup-keys ()
+
+;;;###autoload
+(defun evil-collection-eshell-setup ()
+
+  (add-hook 'eshell-mode-hook 'evil-collection-eshell-next-prompt-on-insert)
+
   "Set up `evil' bindings for `eshell'."
   (evil-collection-define-key 'normal 'eshell-mode-map
     ;; motion
@@ -104,15 +109,17 @@
     (kbd "M-h") 'eshell-backward-argument
     (kbd "M-l") 'eshell-forward-argument
 
+    (kbd "C-m") 'eshell-next-matching-input-from-input
     (kbd "C-n") 'eshell-next-matching-input-from-input
     (kbd "C-p") 'eshell-previous-matching-input-from-input
 
     (kbd "RET") 'eshell-send-input
     (kbd "C-c C-c") 'evil-collection-eshell-interrupt-process
-    "c" 'evil-collection-eshell-evil-change
-    "C" 'evil-collection-eshell-evil-change-line
-    "d" 'evil-collection-eshell-evil-delete
-    "D" 'evil-collection-eshell-evil-delete-line)
+    [remap evil-change] #'evil-collection-eshell-evil-change
+    [remap evil-change-line] #'evil-collection-eshell-evil-change-line
+    [remap evil-delete] #'evil-collection-eshell-evil-delete
+    [remap evil-delete-line] #'evil-collection-eshell-evil-delete-line)
+
   (evil-collection-define-key 'insert 'eshell-mode-map
     ;; motion
     (kbd "M-h") 'eshell-backward-argument
@@ -132,13 +139,6 @@
     "gj" 'eshell-next-prompt
     "0" 'eshell-bol
     "^" 'eshell-bol))
-
-;; TODO: Compare this setup procedure with evil-ediff.
-;;;###autoload
-(defun evil-collection-eshell-setup ()
-  "Set up `evil' bindings for `eshell'."
-  (add-hook 'eshell-mode-hook 'evil-collection-eshell-next-prompt-on-insert)
-  (add-hook 'eshell-first-time-mode-hook 'evil-collection-eshell-setup-keys))
 
 (provide 'evil-collection-eshell)
 ;;; evil-collection-eshell.el ends here
