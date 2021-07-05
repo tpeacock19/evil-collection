@@ -80,7 +80,7 @@ The alist contains (string . position) pairs."
       (progn
         (advice-add #'consult--mark-candidates :override
                     #'evil-collection-consult--mark-candidates)
-        (consult-mark))
+        (consult-mark (evil-collection-consult--evil-mark-ring)))
     (advice-remove #'consult--mark-candidates
                    #'evil-collection-consult--mark-candidates)))
 
